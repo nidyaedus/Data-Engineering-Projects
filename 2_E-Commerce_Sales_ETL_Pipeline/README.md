@@ -16,8 +16,6 @@ While building this pipeline, I focused on mastering "business logic" rather tha
 * **Connection Management and Error Handling:** I encountered the `PendingRollbackError` while loading massive amounts of data to the cloud.
     * This taught me how databases lock during incomplete transactions. I resolved this by using `engine.dispose()` to reset the connection and implemented `chunksize=10000` to load data in manageable batches without overwhelming the system.
 
-[Image of Medallion Architecture Bronze Silver Gold]
-
 ## Architecture and Data Flow
 
 The project follows the **Medallion Architecture** (Bronze -> Silver -> Gold) principles.
@@ -39,7 +37,6 @@ The cleaned data was partitioned into a **Star Schema** for optimized analytical
 * **`dim_date`**: A time-intelligence dimension (`Year`, `Month`, `Day`, `IsWeekend`).
 * **`fact_sales`**: The heart of the schema. It contains metrics (`Quantity`, `TotalAmount`) and links (Foreign Keys) to the dimensions.
 
-[Image of Star Schema Data Warehouse architecture]
 
 ## Technologies Used
 
