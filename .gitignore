@@ -1,0 +1,33 @@
+# ==========================================
+# NYC Taxi ETL Pipeline - .gitignore
+# ==========================================
+
+# 1. Veri Gölü ve Depolama (Kritik!)
+# Ham ve işlenmiş veriler (Parquet, CSV vs.) asla repoya dahil edilmez.
+minio_data/
+*.parquet
+*.csv
+
+# 2. Airflow ve Orkestrasyon Logları
+# Sistem her çalıştığında yüzlerce log üretir, bunları takip etmiyoruz.
+logs/
+plugins/
+airflow-webserver.pid
+
+# 3. Python ve Spark Geçici Dosyaları
+# Kod çalıştığında oluşan önbellek dosyaları.
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# 4. Güvenlik ve Ortam Değişkenleri
+# İleride şifreleri .env dosyasına alırsak sızmasını engeller.
+.env
+.env.local
+
+# 5. IDE ve İşletim Sistemi Dosyaları
+# VS Code, PyCharm veya Mac/Windows sistem atıkları.
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
